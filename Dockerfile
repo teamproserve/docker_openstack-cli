@@ -76,8 +76,10 @@ RUN wget https://kubernetes-helm.storage.googleapis.com/helm-v${HELM_VERSION}-li
   && rm -rvf linux-amd64 \
   && rm helm-v${HELM_VERSION}-linux-amd64.tar.gz
 
-RUN curl -sSL https://cli.openfaas.com | sh
+RUN curl -L https://github.com/coreos/container-linux-config-transpiler/releases/download/v0.9.0/ct-v0.9.0-x86_64-unknown-linux-gnu --output /usr/local/bin/ct \
+  && chmod +x /usr/local/bin/ct
 
+RUN curl -sSL https://cli.openfaas.com | sh
 
 VOLUME ["/blueprints"]
 WORKDIR /blueprints
