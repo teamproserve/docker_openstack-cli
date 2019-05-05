@@ -33,10 +33,10 @@ if [ -d "/root/.ssh2" ]; then
 	scp -r /root/.ssh2 /root/.ssh
 	chown root:root /root/.ssh
 	chmod 0700 /root && chmod -R 0600 /root/.ssh
-fi	
+fi
 
 #exporting more usefull shell for bash.
-export PS1="\[\033[1;90m\][\$(date +%H%M)]\[\033[1;92m\][\[\033[1;31m\]\u\[\033[1;92m\]:\[\033[1;37m\]\w\[\033[1;92m\]]\[\033[33m\]\$(parse_git_branch) \[\033[1;92m\]$\[\033[0m\] "
+export PS1="\[\033[1;90m\][\$(date +%H%M)]\[\033[1;92m\][\[\033[1;31m\]\$OS_TENANT_NAME - \u\[\033[1;92m\]:\[\033[1;37m\]\w\[\033[1;92m\]]\[\033[33m\]\$(parse_git_branch) \[\033[1;92m\]$\[\033[0m\] "
 
 #exporting updated path
 export PATH=$PATH:/root/.conduit/bin
@@ -74,8 +74,8 @@ endmsg
 
 #fork new shell which contain set variables.
 if [ "$1" ]; then
-	exec ssh-agent /bin/bash -c "$1" 
-	#exec ssh-agent /bin/zsh -c "$1" 
+	exec ssh-agent /bin/bash -c "$1"
+	#exec ssh-agent /bin/zsh -c "$1"
 else
         typewriter2  "The" .04
 	typewriter  " Future " .04
