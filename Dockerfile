@@ -65,7 +65,17 @@ RUN curl https://run.conduit.io/install | bash
 
 RUN wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
   && unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip -d /usr/local/bin \
-  && rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip
+  && rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
+  && mkdir /usr/lib/custom-terraform-plugins \
+  && wget https://releases.hashicorp.com/terraform-provider-vsphere/1.11.0/terraform-provider-vsphere_1.11.0_linux_amd64.zip \
+  && unzip terraform-provider-vsphere_1.11.0_linux_amd64.zip -d /usr/lib/custom-terraform-plugins \
+  && rm terraform-provider-vsphere_1.11.0_linux_amd64.zip \
+  && wget https://releases.hashicorp.com/terraform-provider-openstack/1.18.0/terraform-provider-openstack_1.18.0_linux_amd64.zip \
+  && unzip terraform-provider-openstack_1.18.0_linux_amd64.zip -d /usr/lib/custom-terraform-plugins \
+  && rm terraform-provider-openstack_1.18.0_linux_amd64.zip \
+  && wget https://releases.hashicorp.com/terraform-provider-aws/2.11.0/terraform-provider-aws_2.11.0_linux_amd64.zip \
+  && unzip terraform-provider-aws_2.11.0_linux_amd64.zip -d /usr/lib/custom-terraform-plugins \
+  && rm terraform-provider-aws_2.11.0_linux_amd64.zip
 
 RUN  curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && chmod +x kubectl && mv kubectl /usr/bin
 
