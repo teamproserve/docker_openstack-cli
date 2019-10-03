@@ -7,7 +7,7 @@ This image contains default values to talk to the [CloudVPS][1] OpenStack enviro
 docker run -ti \
 -e OS_PROJECT_NAME="YOUR-PROJECTNAME" \
 -e OS_USERNAME="your-username" \
-pblaas/openstack-cli
+teamproserve/openstack-cli
 ```
 >This will prompt you for your openStack password.
 `Please enter your OpenStack Password:`
@@ -36,7 +36,7 @@ docker run -ti \
 -v PATH-TO-TF-BLUEPRINTS:/blueprints \
 -e OS_PROJECT_NAME="YOUR-PROJECTNAME" \
 -e OS_USERNAME="your-username" \
-pblaas/openstack-cli
+teamproserve/openstack-cli
 ```
 
 #### SSH public keys
@@ -46,7 +46,7 @@ docker run -ti \
 -v ~/.ssh:/root/.ssh2 \
 -e OS_PROJECT_NAME="YOUR-PROJECTNAME" \
 -e OS_USERNAME="your-username" \
-pblaas/openstack-cli
+teamproserve/openstack-cli
 ```
 
 ##### Notes
