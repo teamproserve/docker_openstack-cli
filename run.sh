@@ -66,6 +66,7 @@ function typewriter2
 cat > /root/.bashrc <<'endmsg'
 LS_OPTIONS="--color=auto"
 alias ls="ls $LS_OPTIONS"
+alias vi="vim"
 test
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
