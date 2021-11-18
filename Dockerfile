@@ -2,8 +2,8 @@ FROM alpine:3.8
 
 LABEL maintainer="jaikema@proserve.nl"
 
-ARG TERRAFORM_VERSION=0.12.26
-ARG HELM_VERSION=2.11.0
+ARG TERRAFORM_VERSION=0.12.30
+ARG HELM_VERSION=2.17.0
 
 env OS_AUTH_URL="https://identity.openstack.cloudvps.com/v3"
 env OS_PROJECT_ID=""
@@ -79,7 +79,7 @@ RUN wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform
 
 RUN  curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.13.12/bin/linux/amd64/kubectl && chmod +x kubectl && mv kubectl /usr/bin
 
-RUN wget https://kubernetes-helm.storage.googleapis.com/helm-v${HELM_VERSION}-linux-amd64.tar.gz \ 
+RUN wget https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz \ 
   && tar xf helm-v${HELM_VERSION}-linux-amd64.tar.gz \
   && cp /linux-amd64/helm /usr/local/bin \
   && chmod +x /usr/local/bin/helm \
